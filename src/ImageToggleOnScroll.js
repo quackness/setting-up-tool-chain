@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 
 const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
   const imageRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const isInView = () => {
     const rect = imageRef.current.getBoundingClientRect();
@@ -12,6 +13,9 @@ const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    // setInView(true);
+    setIsLoading(false);
+    setInView(isInView());
     window.addEventListener("scroll", scrollHandler);
     return () => {
       window.removeEventListener("scroll", scrollHandler);
@@ -23,7 +27,9 @@ const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
   };
   return (
     <img
-      src={inView ? secondaryImg : primaryImg}
+      src={
+        isLoading ? "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          : inView ? secondaryImg : primaryImg}
       alt=""
       ref={imageRef}
     />

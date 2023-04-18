@@ -3,6 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/ImageChangeOnScroll": "pages/ImageChangeOnScroll.js",
-  "/ImageChangeOnMouseOver": "pages/ImageChangeOnMouseOver.js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
+  "/ImageChangeOnMouseOver": "pages/ImageChangeOnMouseOver.js"
 }
